@@ -8,7 +8,7 @@ This repository contains the code, data access instructions, and supplementary m
 
 > **"Bivariate ExOW-POLO Regression with Cure Fraction and Bayesian Variable Selection: A Unified Framework for Paired Ophthalmic Survival Data"**
 >
-#> *Statistical Methods in Medical Research*, 2026
+> 2026
 
 The BEPRCF framework provides a unified approach for joint modeling of bilateral intraocular pressure (IOP) endpoints in longitudinal glaucoma trials, combining:
 
