@@ -21,30 +21,50 @@ The BEPRCF framework provides a unified approach for joint modeling of bilateral
 ## Repository Structure
 beprcf/
 ├── README.md
+
 ├── LICENSE
+
 ├── CITATION.cff
+
 ├── .gitignore
+
 ├── paper/ # Manuscript source (to be added)
+
 │ └── figures/
+
 ├── stan/ # Stan model files
+
 │ ├── beprcf_model.stan
+
 │ └── beprcf_sensitivity.stan
+
 ├── R/ # Analysis and simulation scripts
+
 │ ├── 01_simulation_study.R
+
 │ ├── 02_ohts_analysis.R
+
 │ ├── 03_figures_tables.R
+
 │ ├── 04_sensitivity_analysis.R
+
 │ ├── 05_misspecification.R
+
 │ └── utils.R
+
 ├── data/ # Data access information
+
 │ └── README.md
+
 ├── results/ # Processed results
+
 └── supplementary/ # Supplementary materials
+
 
 
 ## Quick Start
 
-```bash
+bash
 git clone https://github.com/Mado-ani/beprcf.git
 
 ## Prerequisites
