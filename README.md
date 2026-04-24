@@ -102,5 +102,23 @@ The Ocular Hypertension Treatment Study was supported by awards from the Nationa
 
 
 
+## License
+Code: CC BY 4.0 | Manuscript: Copyright SAGE Publications
+
+
+
+```bash
+cat > LICENSE << 'EOF'
+Creative Commons Attribution 4.0 International
+
+Copyright (c) 2026 Mohamad Alani
+
+This work is licensed under the Creative Commons Attribution 4.0 
+International License. To view a copy, visit:
+http://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt for any purpose, provided you give 
+appropriate credit.
+EOF
 
 
