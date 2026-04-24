@@ -111,7 +111,7 @@ Code: CC BY 4.0 | Manuscript: Copyright SAGE Publications
 cat > LICENSE << 'EOF'
 Creative Commons Attribution 4.0 International
 
-Copyright (c) 2026 Mohamad Alani
+Copyright (c) 2026 Mohamamed M. Thakir (Mohamad Alani)
 
 This work is licensed under the Creative Commons Attribution 4.0 
 International License. To view a copy, visit:
