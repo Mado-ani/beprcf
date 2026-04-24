@@ -1,33 +1,29 @@
-\documentclass[Afour,sageh,times]{sagej}
+\documentclass[12pt,a4paper]{article}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
 \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
 \usepackage{natbib}
 \usepackage{bm}
 \usepackage{enumitem}
-
-\def\volumeyear{2026}
+\usepackage{caption}
 
 \begin{document}
 
-\runninghead{Alani}
-
-\title{Supplementary Materials: Bivariate ExOW-POLO Regression with Cure 
-Fraction and Bayesian Variable Selection}
-
+\title{Supplementary Materials:\\ Bivariate ExOW-POLO Regression with Cure Fraction and Bayesian Variable Selection}
 \author{Mohamad Alani}
-
+\date{}
 \maketitle
 
-\section*{S1. Alternative Marginal Distribution Comparison}
+\section{Alternative Marginal Distribution Comparison}
 
 Table S1 presents the WAIC comparison of the ExOW-POLO distribution against 
 three alternative flexible marginal distributions, each fitted with a mixture 
 cure component to the OHTS data.
 
 \begin{table}[htbp]
-\small\sf\centering
+\centering
 \caption{WAIC comparison of marginal distributions with cure fraction.}
 \label{tab:S1}
 \begin{tabular}{lcc}
@@ -46,13 +42,13 @@ The ExOW-POLO achieved the lowest WAIC, supporting its selection on empirical
 grounds. The difference relative to the next-best model (generalised gamma) 
 was $\Delta\text{WAIC} = 12.4$.
 
-\section*{S2. Full Posterior Correlation Matrices}
+\section{Full Posterior Correlation Matrices}
 
 Table S2 presents the posterior correlation matrix for key model parameters 
 under the full BEPRCF (M4).
 
 \begin{table}[htbp]
-\small\sf\centering
+\centering
 \caption{Posterior correlation matrix for key BEPRCF parameters.}
 \label{tab:S2}
 \begin{tabular}{lccccc}
@@ -76,7 +72,7 @@ The weak correlation between $\theta$ and $\pi_{00}$ ($\rho \approx 0.18$)
 indicates that the model effectively distinguishes cure-related plateaus 
 from dependence-induced concordance among failures.
 
-\section*{S3. Complete Likelihood Expressions for All Censoring Patterns}
+\section{Complete Likelihood Expressions for All Censoring Patterns}
 
 For patient $i$, let $(L_{i1}, R_{i1})$ and $(L_{i2}, R_{i2})$ denote the 
 interval-censoring brackets for the left and right eyes, respectively. The 
@@ -87,15 +83,12 @@ bivariate likelihood contribution integrates over the four latent cure states:
 + \pi_{01,i} I_{01,i} + \pi_{00,i} I_{00,i}.
 \]
 
-The state-specific contributions $I_{rs,i}$ depend on the observed censoring 
-pattern:
-
-\subsection*{S3.1 State (1,1): Both Eyes Cured}
+\subsection{State (1,1): Both Eyes Cured}
 
 $I_{11,i} = 1$ for all censoring patterns, as cured eyes contribute no 
 event probability.
 
-\subsection*{S3.2 State (1,0): Left Eye Cured, Right Eye Susceptible}
+\subsection{State (1,0): Left Eye Cured, Right Eye Susceptible}
 
 \begin{itemize}
 \item \textbf{Right eye interval-censored} ($0 < L_{i2} < R_{i2} < \infty$):
@@ -104,7 +97,7 @@ event probability.
   $I_{10,i} = S_2(L_{i2})$
 \end{itemize}
 
-\subsection*{S3.3 State (0,1): Left Eye Susceptible, Right Eye Cured}
+\subsection{State (0,1): Left Eye Susceptible, Right Eye Cured}
 
 \begin{itemize}
 \item \textbf{Left eye interval-censored} ($0 < L_{i1} < R_{i1} < \infty$):
@@ -113,11 +106,10 @@ event probability.
   $I_{01,i} = S_1(L_{i1})$
 \end{itemize}
 
-\subsection*{S3.4 State (0,0): Both Eyes Susceptible}
+\subsection{State (0,0): Both Eyes Susceptible}
 
 Let $S_{12}(u,v) = (S_1(u)^{-\theta} + S_2(v)^{-\theta} - 1)^{-1/\theta}$ 
-denote the Clayton survival copula, and let $f_{12}(u,v)$ denote the 
-corresponding bivariate density.
+denote the Clayton survival copula.
 
 \begin{itemize}
 \item \textbf{Both eyes interval-censored}:
@@ -125,26 +117,23 @@ corresponding bivariate density.
   I_{00,i} &= S_{12}(L_{i1}, L_{i2}) - S_{12}(R_{i1}, L_{i2}) \\
            &\quad - S_{12}(L_{i1}, R_{i2}) + S_{12}(R_{i1}, R_{i2})
   \end{align*}
-
 \item \textbf{Left eye interval-censored, right eye right-censored}:
   $I_{00,i} = S_{12}(L_{i1}, L_{i2}) - S_{12}(R_{i1}, L_{i2})$
-
 \item \textbf{Left eye right-censored, right eye interval-censored}:
   $I_{00,i} = S_{12}(L_{i1}, L_{i2}) - S_{12}(L_{i1}, R_{i2})$
-
 \item \textbf{Both eyes right-censored}:
   $I_{00,i} = S_{12}(L_{i1}, L_{i2})$
 \end{itemize}
 
-\section*{S4. Complete Sensitivity Analysis Results}
+\section{Complete Sensitivity Analysis Results}
 
 Table S3 presents the full comparison between the main BEPRCF model 
 (assuming conditional independence of cure indicators) and the sensitivity 
 model with shared cure frailty.
 
 \begin{table}[htbp]
-\small\sf\centering
-\caption{Full sensitivity analysis results: main BEPRCF vs.\ cure frailty model.}
+\centering
+\caption{Full sensitivity analysis: main BEPRCF vs.\ cure frailty model.}
 \label{tab:S3}
 \begin{tabular}{lccc}
 \toprule
@@ -171,48 +160,15 @@ robust (odds ratio 1.79 vs.\ 1.84), and the WAIC difference of 2.3 units
 is negligible relative to the model complexity difference. We therefore 
 present the more parsimonious BEPRCF as our primary model.
 
-\section*{S5. Profile Likelihood Plots}
-
-Figure S1 displays the profile likelihoods for the five ExOW-POLO parameters 
-constructed under the full BEPRCF specification. Each panel shows the profile 
-log-likelihood for one parameter, maximised over the remaining four.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{../results/figures/figS1_profile_likelihood.pdf}
-\caption{Profile log-likelihoods for ExOW-POLO parameters. The dashed line 
-indicates the 95\% confidence bound based on the $\chi^2_1$ approximation. 
-The profile for $b$ (top right) exhibits the shallowest curvature, indicating 
-practical estimability challenges in finite samples.}
-\label{fig:S1}
-\end{figure}
-
-\section*{S6. Nonparametric Copula Comparison}
-
-To assess the appropriateness of the Clayton copula without parametric 
-assumptions, Figure S2 displays the empirical Kendall's $\tau$ plot 
-(Genest and Rivest, 1993) comparing the observed dependence structure 
-against the fitted Clayton, Frank, Gumbel--Hougaard, and Joe copulas.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{../results/figures/figS2_copula_comparison.pdf}
-\caption{Empirical Kendall's $\tau$ plot. The solid line represents the 
-empirical dependence function; dashed lines represent parametric copula fits. 
-The Clayton copula (red) provides the closest match in the lower tail, 
-consistent with the WAIC/LOO selection.}
-\label{fig:S2}
-\end{figure}
-
-\section*{S7. Prior Sensitivity Analysis}
+\section{Prior Sensitivity Analysis}
 
 Table S4 presents the sensitivity of posterior estimates to the choice of 
 LASSO hyperprior. We varied the Gamma shape parameter $r \in \{0.1, 1, 10\}$ 
 in the prior $\lambda^2 \sim \text{Gamma}(r, 1)$.
 
 \begin{table}[htbp]
-\small\sf\centering
-\caption{Prior sensitivity analysis: effect of LASSO hyperprior on key estimates.}
+\centering
+\caption{Prior sensitivity analysis: effect of LASSO hyperprior.}
 \label{tab:S4}
 \begin{tabular}{lccc}
 \toprule
@@ -228,18 +184,15 @@ Active covariates (mean) & 5.2 & 4.1 & 2.8 \\
 
 Key parameter estimates are stable across hyperprior choices, with the 
 treatment effect on cure probability varying by at most 0.06 on the log-odds 
-scale. As expected, stronger regularisation ($r = 10$) selects fewer active 
-covariates but does not materially affect the substantive conclusions.
+scale.
 
-\section*{S8. Extended Simulation Results}
-
-\subsection*{S8.1 Full Results for All Sample Sizes}
+\section{Extended Simulation Results}
 
 Table S5 presents the complete simulation results for all sample sizes 
 ($n \in \{200, 500, 1000, 2000\}$) under correct specification.
 
 \begin{table}[htbp]
-\small\sf\centering
+\centering
 \caption{Complete simulation results under correct specification.}
 \label{tab:S5}
 \begin{tabular}{lcccc}
@@ -253,8 +206,6 @@ $\pi_{11}$ & 0.06 & 0.03 & 0.02 & 0.01 \\
 $\pi_{00}$ & 0.08 & 0.04 & 0.02 & 0.01 \\
 $\gamma_\alpha$ (treatment) & 0.09 & 0.04 & 0.02 & 0.01 \\
 $\gamma_\pi$ (treatment) & 0.12 & 0.06 & 0.03 & 0.02 \\
-$a$ (global) & 0.15 & 0.08 & 0.04 & 0.02 \\
-$\beta$ (scale) & 0.22 & 0.12 & 0.07 & 0.04 \\
 \midrule
 \multicolumn{5}{c}{\textit{RMSE}} \\
 \midrule
@@ -263,56 +214,17 @@ $\pi_{11}$ & 0.11 & 0.06 & 0.04 & 0.02 \\
 $\pi_{00}$ & 0.15 & 0.08 & 0.05 & 0.03 \\
 $\gamma_\alpha$ (treatment) & 0.22 & 0.11 & 0.07 & 0.05 \\
 $\gamma_\pi$ (treatment) & 0.27 & 0.14 & 0.09 & 0.06 \\
-$a$ (global) & 0.34 & 0.19 & 0.12 & 0.08 \\
-$\beta$ (scale) & 0.48 & 0.29 & 0.18 & 0.12 \\
-\midrule
-\multicolumn{5}{c}{\textit{95\% Coverage (\%)}} \\
-\midrule
-$\theta$ & 93.8 & 95.2 & 95.0 & 94.8 \\
-$\pi_{11}$ & 92.4 & 93.8 & 94.6 & 95.0 \\
-$\pi_{00}$ & 92.8 & 94.4 & 94.8 & 95.2 \\
-$\gamma_\alpha$ (treatment) & 93.2 & 94.6 & 95.0 & 94.8 \\
-$\gamma_\pi$ (treatment) & 92.6 & 93.9 & 94.4 & 95.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection*{S8.2 Trace Plots for OHTS Analysis}
+\section{Effective Sample Size Diagnostics}
 
-Figure S3 displays trace plots for the four NUTS chains for key model 
-parameters under the full BEPRCF fit to the OHTS data.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{../results/figures/figS3_trace_plots.pdf}
-\caption{Trace plots for key BEPRCF parameters from four independent NUTS 
-chains. All parameters show excellent mixing, with $\widehat{R} < 1.005$ 
-for all monitored quantities.}
-\label{fig:S3}
-\end{figure}
-
-\section*{S9. Derivation of ExOW-POLO Moments}
-
-The $r$-th raw moment of the ExOW-POLO distribution is:
-
-\[
-E[Y^r] = \int_0^\infty y^r f(y \mid \Omega) \, dy
-\]
-
-For the special case where $\eta = 1$, closed-form expressions exist for 
-integer moments. For general $\eta$, moments are computed via numerical 
-integration. The Supplementary Code repository contains an R function 
-\texttt{exowpolo\_moment()} implementing Gauss-Kronrod quadrature for 
-moment calculation.
-
-\section*{S10. Effective Sample Size Diagnostics}
-
-Table S6 reports the bulk and tail effective sample sizes for the key 
-parameters under the full BEPRCF fit.
+Table S6 reports the bulk and tail effective sample sizes for key parameters.
 
 \begin{table}[htbp]
-\small\sf\centering
-\caption{Effective sample sizes for key BEPRCF parameters (OHTS analysis).}
+\centering
+\caption{Effective sample sizes (OHTS analysis).}
 \label{tab:S6}
 \begin{tabular}{lcc}
 \toprule
@@ -328,7 +240,7 @@ $\pi_{11}$ (generated) & 4{,}012 & 3{,}245 \\
 \end{tabular}
 \end{table}
 
-All parameters exceed the recommended threshold of 400 for both bulk and 
-tail ESS, confirming adequate posterior exploration.
+All parameters exceed the recommended threshold of 400, confirming adequate 
+posterior exploration.
 
 \end{document}
