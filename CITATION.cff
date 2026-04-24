@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+type: software
+title: "BEPRCF: Bivariate ExOW-POLO Regression with Cure Fraction"
+version: 1.0.0
+date-released: 2026-04-24
+authors:
+  - family-names: "Alani"
+    given-names: "Mohamad"
+repository-code: "https://github.com/Mado-ani/beprcf"
+license: CC-BY-4.0
+keywords:
+  - "survival analysis"
+  - "cure fraction"
+  - "Bayesian"
+  - "Stan"

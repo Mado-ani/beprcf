@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.RData
+*.Rproj
+*.rds
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+.DS_Store
+Thumbs.db
+data/raw/*
+data/processed/*
+results/*.RData
+results/*.rds
