@@ -1,0 +1,27 @@
+name: Check Reproducibility
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-simulation:
+    runs-on: ubuntu-latest
+    container:
+      image: rocker/rstan:latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: |
+          Rscript -e 'install.packages(c("survival", "flexsurv", "copula", "ggplot2", "dplyr", "tidyr"))'
+      
+      - name: Run simulation test
+        run: |
+          Rscript R/01_simulation_study.R
+      
+      - name: Generate figures
+        run: |
+          Rscript R/03_figures_tables.R
