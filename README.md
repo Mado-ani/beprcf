@@ -46,7 +46,6 @@ beprcf/
 
 ```bash
 git clone https://github.com/Mado-ani/beprcf.git
-cd beprcf
 
 ## Prerequisites
 R ≥ 4.3.0
