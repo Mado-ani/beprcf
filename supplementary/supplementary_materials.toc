@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Alternative Marginal Distribution Comparison}{3}{section.1}%
+\contentsline {section}{\numberline {2}Full Posterior Correlation Matrices}{3}{section.2}%
+\contentsline {section}{\numberline {3}Complete Likelihood Expressions for All Censoring Patterns}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}State (1,1): Both Eyes Cured}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}State (1,0): Left Eye Cured, Right Eye Susceptible}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}State (0,1): Left Eye Susceptible, Right Eye Cured}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}State (0,0): Both Eyes Susceptible}{5}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Derivation of ExOW-POLO Hazard Shapes and Asymptotic Behavior}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Hazard Function}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Asymptotic Behavior at the Origin}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Asymptotic Behavior in the Tail}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Classification of Hazard Shapes}{6}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Clinical Interpretation}{6}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Numerical Verification}{7}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Profile Likelihood Diagnostics}{7}{section.5}%
+\contentsline {section}{\numberline {6}Nonparametric Copula Comparison}{7}{section.6}%
+\contentsline {section}{\numberline {7}Complete Sensitivity Analysis Results}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Interpretation}{9}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Prior Sensitivity Analysis}{9}{section.8}%
+\contentsline {section}{\numberline {9}Extended Simulation Results}{9}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Correct Specification}{10}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Robustness Under Distributional Misspecification}{10}{subsection.9.2}%
+\contentsline {section}{\numberline {10}MCMC Diagnostics and Convergence}{11}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Effective Sample Sizes}{11}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Trace Plots}{12}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Rank Histograms}{12}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Divergent Transitions and E-BFMI}{12}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Software and Reproducibility}{13}{section.11}%
+\contentsline {section}{\numberline {12}References}{13}{section.12}%
