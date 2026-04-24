@@ -1,14 +1,6 @@
 # BEPRCF: Bivariate ExOW-POLO Regression with Cure Fraction
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg
-        
-        
-        
-        )](https://doi.org/10.5281/zenodo.XXXXXXX
-        
-        
-        
-        )
+
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Overview
@@ -17,7 +9,7 @@ This repository contains the code, data access instructions, and supplementary m
 
 > **"Bivariate ExOW-POLO Regression with Cure Fraction and Bayesian Variable Selection: A Unified Framework for Paired Ophthalmic Survival Data"**
 >
-#> *Statistical Methods in Medical Research*, 2026
+> 2026
 
 The BEPRCF framework provides a unified approach for joint modeling of bilateral intraocular pressure (IOP) endpoints in longitudinal glaucoma trials, combining:
 
@@ -28,3 +20,105 @@ The BEPRCF framework provides a unified approach for joint modeling of bilateral
 - **Hamiltonian Monte Carlo** via Stan (efficient posterior computation)
 
 ## Repository Structure
+beprcf/
+├── README.md
+
+├── LICENSE
+
+├── CITATION.cff
+
+├── .gitignore
+
+├── paper/ # Manuscript source (to be added)
+
+│ └── figures/
+
+├── stan/ # Stan model files
+
+│ ├── beprcf_model.stan
+
+│ └── beprcf_sensitivity.stan
+
+├── R/ # Analysis and simulation scripts
+
+│ ├── 01_simulation_study.R
+
+│ ├── 02_ohts_analysis.R
+
+│ ├── 03_figures_tables.R
+
+│ ├── 04_sensitivity_analysis.R
+
+│ ├── 05_misspecification.R
+
+│ └── utils.R
+
+├── data/ # Data access information
+
+│ └── README.md
+
+├── results/ # Processed results
+
+└── supplementary/ # Supplementary materials
+
+
+
+## Quick Start
+
+bash
+git clone https://github.com/Mado-ani/beprcf.git
+
+## Prerequisites
+R ≥ 4.3.0
+
+Stan ≥ 2.33
+
+Required R packages: rstan, survival, flexsurv, copula, ggplot2, dplyr
+
+## Install Dependencies
+
+# Simulation study
+source("R/01_simulation_study.R")
+results <- run_simulation()
+
+# OHTS analysis (requires dbGaP access)
+source("R/02_ohts_analysis.R")
+fit <- analyze_ohts_data("data/processed/")
+
+## Reproducing Results
+# Simulation study
+source("R/01_simulation_study.R")
+results <- run_simulation()
+
+# OHTS analysis (requires dbGaP access)
+source("R/02_ohts_analysis.R")
+fit <- analyze_ohts_data("data/processed/")
+
+## Data Availability
+The OHTS data are available through the NIH Database of Genotypes and Phenotypes (dbGaP, accession phs000240.v1.p1) under authorized access procedures. See data/README.md for detailed instructions.
+
+## Acknowledgments
+The Ocular Hypertension Treatment Study was supported by awards from the National Eye Institute (EY09341, EY09307), the National Center on Minority Health and Health Disparities, NIH, the Horncrest Foundation, Research to Prevent Blindness, Inc., Merck Research Laboratories, and Pfizer, Inc.
+
+
+
+## License
+Code: CC BY 4.0 | Manuscript: Copyright SAGE Publications
+
+
+
+```bash
+cat > LICENSE << 'EOF'
+Creative Commons Attribution 4.0 International
+
+Copyright (c) 2026 Mohamamed M. Thakir (Mohamad Alani)
+
+This work is licensed under the Creative Commons Attribution 4.0 
+International License. To view a copy, visit:
+http://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt for any purpose, provided you give 
+appropriate credit.
+EOF
+
+
