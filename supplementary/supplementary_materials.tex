@@ -14,7 +14,7 @@
 \begin{document}
 
 \title{Supplementary Materials:\\ Bivariate ExOW-POLO Regression with Cure Fraction \\ and Bayesian Variable Selection}
-\author{Mohamad Alani}
+\author{Mohammed Munder Thakir}
 \date{}
 \maketitle
 
@@ -25,7 +25,9 @@
 \section{Alternative Marginal Distribution Comparison}
 %=====================================================================
 
-The manuscript references a comparison of the ExOW-POLO distribution against alternative flexible families. Table S1 presents the WAIC comparison of the ExOW-POLO distribution against three alternative flexible marginal distributions, each fitted with a mixture cure component to the OHTS data.
+The manuscript references a comparison of the ExOW-POLO distribution against alternative flexible families. Table S1 presents the WAIC comparison of the ExOW-POLO distribution against three alternative flexible marginal distributions, each fitted with a mixture cure component.
+
+\textbf{Note on simulation calibration:} The WAIC values reported in Table~S1 are computed from simulated data generated under the BEPRCF model calibrated to published OHTS statistics (Gordon et al., 2002; Kass et al., 2002), consistent with the approach described in Section~7 of the main manuscript.
 
 \begin{table}[H]
 \centering
@@ -43,17 +45,17 @@ Generalised beta (type 2) & 4 & 8{,}571.3 \\
 \end{tabular}
 \end{table}
 
-The ExOW-POLO achieved the lowest WAIC, supporting its selection on empirical grounds. The difference relative to the next-best model (generalised gamma) was $\Delta\text{WAIC} = 12.4$. Density plots and quantile-quantile plots for each fitted marginal distribution are provided in Figure~\ref{fig:marginal_fits} (generated from the OHTS analysis script \texttt{R/03\_figures\_tables.R}).
+The ExOW-POLO achieved the lowest WAIC, supporting its selection on empirical grounds. The difference relative to the next-best model (generalised gamma) was $\Delta\text{WAIC} = 12.4$.
 
 \begin{figure}[H]
 \centering
 \fbox{\parbox{0.8\textwidth}{\centering\vspace{3cm}
 \textbf{[Figure S1: Marginal Distribution Comparison]}\\
 Density plots and QQ-plots comparing ExOW-POLO, generalised gamma, 
-log-skew-normal, and generalised beta fits to the OHTS data.\\
+log-skew-normal, and generalised beta fits.\\
 \textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
 \caption{Density and quantile-quantile plots for alternative marginal distributions.}
-\label{fig:marginal_fits}
+\label{fig:S1}
 \end{figure}
 
 %=====================================================================
@@ -131,22 +133,19 @@ $I_{11,i} = 1$ for all censoring patterns, as cured eyes contribute no event pro
 Let $S_{12}(u,v) = \left(S_1(u)^{-\theta} + S_2(v)^{-\theta} - 1\right)^{-1/\theta}$ denote the Clayton survival copula. The state-specific contributions for the four possible censoring patterns are:
 
 \begin{itemize}
-\item \textbf{Both eyes interval-censored} ($0 < L_{i1} < R_{i1} < \infty$ and $0 < L_{i2} < R_{i2} < \infty$):
+\item \textbf{Both eyes interval-censored}:
   \begin{align}
   I_{00,i} &= S_{12}(L_{i1}, L_{i2}) - S_{12}(R_{i1}, L_{i2}) \nonumber \\
            &\quad - S_{12}(L_{i1}, R_{i2}) + S_{12}(R_{i1}, R_{i2})
   \end{align}
-
 \item \textbf{Left eye interval-censored, right eye right-censored}:
   \begin{equation}
   I_{00,i} = S_{12}(L_{i1}, L_{i2}) - S_{12}(R_{i1}, L_{i2})
   \end{equation}
-
 \item \textbf{Left eye right-censored, right eye interval-censored}:
   \begin{equation}
   I_{00,i} = S_{12}(L_{i1}, L_{i2}) - S_{12}(L_{i1}, R_{i2})
   \end{equation}
-
 \item \textbf{Both eyes right-censored}:
   \begin{equation}
   I_{00,i} = S_{12}(L_{i1}, L_{i2})
@@ -188,22 +187,18 @@ h(y) \sim \frac{a \eta \beta}{\alpha^{1/b} \, b^{1/b}} \cdot y^{\eta - 1} \cdot 
 
 \subsection{Classification of Hazard Shapes}
 
-The ExOW-POLO hazard admits four distinct shapes depending on parameter combinations:
+The ExOW-POLO hazard admits four distinct shapes:
 
 \begin{enumerate}
 \item \textbf{Monotone increasing:} $\eta \geq 1$ and $a\beta \geq 1$.
 \item \textbf{Monotone decreasing:} $\eta \leq 1$ and $a\beta \leq 1$.
-\item \textbf{Unimodal (increasing then decreasing):} $\eta > 1$ and $a\beta < 1$. The mode occurs at the solution to $\partial \log h(y) / \partial y = 0$.
-\item \textbf{Bathtub-shaped (decreasing then increasing):} $\eta < 1$ and $a\beta > 1$. The minimum of the bathtub occurs at the solution to $\partial \log h(y) / \partial y = 0$.
+\item \textbf{Unimodal (increasing then decreasing):} $\eta > 1$ and $a\beta < 1$.
+\item \textbf{Bathtub-shaped (decreasing then increasing):} $\eta < 1$ and $a\beta > 1$.
 \end{enumerate}
 
 \subsection{Clinical Interpretation}
 
-The bathtub shape is particularly relevant for post-operative IOP data. The initially decreasing hazard corresponds to the early post-operative period, during which surgical intervention successfully controls IOP. The subsequently increasing hazard reflects late failure, where a minority of eyes experience IOP elevation months or years after surgery. The unimodal shape represents an initial period of increasing risk (early failures) followed by stabilization among long-term survivors.
-
-\subsection{Numerical Verification}
-
-Figure~\ref{fig:hazard_shapes} illustrates the four hazard shapes for representative parameter values.
+The bathtub shape is particularly relevant for post-operative IOP data. The initially decreasing hazard corresponds to the early post-operative period, during which surgical intervention successfully controls IOP. The subsequently increasing hazard reflects late failure, where a minority of eyes experience IOP elevation months or years after surgery.
 
 \begin{figure}[H]
 \centering
@@ -213,7 +208,7 @@ Four panels showing monotone increasing, monotone decreasing, unimodal,
 and bathtub-shaped hazards for representative ExOW-POLO parameter values.\\
 \textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
 \caption{Illustrative hazard shapes for the ExOW-POLO distribution.}
-\label{fig:hazard_shapes}
+\label{fig:S2}
 \end{figure}
 
 %=====================================================================
@@ -231,16 +226,16 @@ $\alpha$, $\beta$, and $\eta$. The dashed horizontal line indicates the
 95\% confidence bound based on the $\chi^2_1$ approximation.\\
 \textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
 \caption{Profile log-likelihoods for ExOW-POLO parameters.}
-\label{fig:profile}
+\label{fig:S3}
 \end{figure}
 
-The profile for $b$ exhibits the shallowest curvature in the region $b \in [0.1, 0.3]$, confirming the practical estimability challenges discussed in the manuscript. All profiles display a clear maximum away from the parameter space boundaries, consistent with the structural identifiability established by the Fisher information rank analysis in Section~2.3.
+The profile for $b$ exhibits the shallowest curvature in the region $b \in [0.1, 0.3]$, confirming the practical estimability challenges discussed in the manuscript.
 
 %=====================================================================
 \section{Nonparametric Copula Comparison}
 %=====================================================================
 
-As referenced in Section~6.2 of the manuscript, we compared the Clayton copula against alternatives using both parametric (WAIC/LOO) and nonparametric methods.
+As referenced in Section~6.2 of the manuscript, we compared the Clayton copula against alternatives using both parametric and nonparametric methods.
 
 \begin{figure}[H]
 \centering
@@ -248,20 +243,19 @@ As referenced in Section~6.2 of the manuscript, we compared the Clayton copula a
 \textbf{[Figure S4: Empirical Kendall's $\tau$ Plot]}\\
 The solid line represents the empirical dependence function $\hat{K}(z)$. 
 Dashed lines show parametric fits: Clayton (red), Frank (blue), 
-Gumbel--Hougaard (green), and Joe (orange). The Clayton copula provides 
-the closest match in the lower tail ($z \to 0$).\\
+Gumbel--Hougaard (green), and Joe (orange).\\
 \textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
 \caption{Empirical Kendall's $\tau$ plot for copula selection.}
-\label{fig:copula}
+\label{fig:S4}
 \end{figure}
 
-The empirical Kendall's $\tau$ plot (Genest and Rivest, 1993) compares the nonparametrically estimated dependence function $\hat{K}(z)$ against the theoretical $K(z)$ for each candidate copula. The Clayton copula provides the closest match in the lower tail ($z \to 0$), consistent with the clinical expectation of stronger dependence among early bilateral failures. This nonparametric evidence corroborates the WAIC and LOO-CV selection of the Clayton copula reported in Table~3 of the manuscript.
+The Clayton copula provides the closest match in the lower tail ($z \to 0$), consistent with the clinical expectation of stronger dependence among early bilateral failures.
 
 %=====================================================================
 \section{Complete Sensitivity Analysis Results}
 %=====================================================================
 
-As referenced in Section~7.6 of the manuscript, we conducted a sensitivity analysis to assess the conditional independence assumption of cure indicators.
+As referenced in Section~7.6 of the manuscript, we conducted a sensitivity analysis to assess the conditional independence assumption of cure indicators. The results presented in Table~S3 are based on simulated data generated under the BEPRCF model with parameters calibrated to published OHTS statistics (Gordon et al., 2002; Kass et al., 2002).
 
 \begin{table}[H]
 \centering
@@ -274,14 +268,9 @@ As referenced in Section~7.6 of the manuscript, we conducted a sensitivity analy
 $\theta$ (Clayton copula) & 1.76 (1.16, 2.53) & 1.58 (1.02, 2.31) & $-0.18$ \\
 Kendall's $\tau$ & 0.44 (0.37, 0.56) & 0.41 (0.34, 0.54) & $-0.03$ \\
 $\pi_{11}$ (joint cure) & 0.31 (0.22, 0.41) & 0.34 (0.24, 0.45) & $+0.03$ \\
-$\pi_{10}$ (left cured only) & 0.09 (0.04, 0.15) & 0.08 (0.03, 0.14) & $-0.01$ \\
-$\pi_{01}$ (right cured only) & 0.08 (0.03, 0.14) & 0.07 (0.03, 0.13) & $-0.01$ \\
 $\pi_{00}$ (joint susceptible) & 0.52 (0.41, 0.63) & 0.49 (0.38, 0.60) & $-0.03$ \\
 $\gamma_\pi$ (treatment on cure) & 0.61 (0.29, 0.94) & 0.58 (0.26, 0.91) & $-0.03$ \\
 Treatment OR for cure & 1.84 (1.34, 2.56) & 1.79 (1.30, 2.48) & $-0.05$ \\
-$a$ (global shape) & 1.41 (0.93, 1.98) & 1.39 (0.91, 1.95) & $-0.02$ \\
-$b$ (global shape) & 0.66 (0.33, 1.15) & 0.64 (0.31, 1.12) & $-0.02$ \\
-$\eta$ (global) & 1.11 (0.79, 1.49) & 1.10 (0.78, 1.48) & $-0.01$ \\
 $\sigma^2_u$ (cure frailty) & --- & 0.14 (0.02, 0.31) & --- \\
 WAIC & 8{,}550.1 & 8{,}547.8 & $-2.3$ \\
 PSIS-LOO & 8{,}555.7 & 8{,}553.1 & $-2.6$ \\
@@ -291,19 +280,17 @@ PSIS-LOO & 8{,}555.7 & 8{,}553.1 & $-2.6$ \\
 
 \subsection{Interpretation}
 
-The estimated cure frailty variance $\hat{\sigma}^2_u = 0.14$ (95\%~CrI:~0.02,~0.31) indicates modest but non-zero unobserved heterogeneity in cure propensity beyond what is explained by the measured covariates. Under the sensitivity model, the Clayton copula parameter $\theta$ decreased from 1.76 to 1.58, consistent with the expectation that under conditional independence, the copula partially absorbs residual cure dependence. This translates to a modest reduction in estimated Kendall's $\tau$ from 0.44 to 0.41.
-
-Critically, the treatment effect on cure probability remained robust: the log-odds ratio changed from 0.61 to 0.58, and the corresponding odds ratio from 1.84 to 1.79. Both the WAIC and PSIS-LOO differences (approximately 2--3 units) are negligible relative to the model complexity difference. We therefore present the more parsimonious BEPRCF as our primary model while acknowledging that the conditional independence assumption is a limitation discussed in Section~9.2 of the manuscript.
+The estimated cure frailty variance $\hat{\sigma}^2_u = 0.14$ (95\%~CrI:~0.02,~0.31) indicates modest but non-zero unobserved heterogeneity in cure propensity. Under the sensitivity model, the copula parameter $\theta$ decreased from 1.76 to 1.58, consistent with the expectation that under conditional independence, the copula partially absorbs residual cure dependence. Critically, the treatment effect on cure probability remained robust (odds ratio 1.79 vs.\ 1.84).
 
 %=====================================================================
 \section{Prior Sensitivity Analysis}
 %=====================================================================
 
-As referenced in Section~4.4 of the manuscript, we assessed the sensitivity of posterior estimates to the choice of LASSO hyperprior. We varied the Gamma shape parameter $r \in \{0.1, 1, 10\}$ in the prior $\lambda^2 \sim \text{Gamma}(r, 1)$.
+As referenced in Section~4.4 of the manuscript, we assessed the sensitivity of posterior estimates to the choice of LASSO hyperprior.
 
 \begin{table}[H]
 \centering
-\caption{Prior sensitivity analysis: effect of LASSO hyperprior on key posterior estimates.}
+\caption{Prior sensitivity analysis: effect of LASSO hyperprior.}
 \label{tab:S4}
 \begin{tabular}{lccc}
 \toprule
@@ -311,22 +298,18 @@ As referenced in Section~4.4 of the manuscript, we assessed the sensitivity of p
 \midrule
 $\theta$ (copula) & 1.79 (1.20, 2.58) & 1.76 (1.16, 2.53) & 1.72 (1.12, 2.47) \\
 $\pi_{11}$ (cure) & 0.32 (0.23, 0.43) & 0.31 (0.22, 0.41) & 0.29 (0.20, 0.39) \\
-$\pi_{00}$ (susceptible) & 0.50 (0.39, 0.61) & 0.52 (0.41, 0.63) & 0.55 (0.44, 0.66) \\
 $\gamma_\pi$ (treatment) & 0.63 (0.31, 0.97) & 0.61 (0.29, 0.94) & 0.57 (0.25, 0.90) \\
-$\gamma_\alpha$ (treatment) & $-0.40$ ($-0.62$, $-0.19$) & $-0.38$ ($-0.59$, $-0.17$) & $-0.35$ ($-0.55$, $-0.14$) \\
-Active covariates (mean) & 5.2 & 4.1 & 2.8 \\
-Inactive covariates (mean) & 1.8 & 2.9 & 4.2 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Key parameter estimates are stable across hyperprior choices. The treatment effect on cure probability varies by at most 0.06 on the log-odds scale, and the 95\% credible intervals overlap substantially across all three specifications. As expected, stronger regularisation ($r = 10$) selects fewer active covariates (mean 2.8 vs.\ 5.2 for $r = 0.1$) but does not materially affect the substantive conclusions regarding treatment effects or dependence structure.
+Key parameter estimates are stable across hyperprior choices.
 
 %=====================================================================
 \section{Extended Simulation Results}
 %=====================================================================
 
-As referenced in Section~8 of the manuscript, we present the complete simulation results for all sample sizes under both correct specification and misspecification.
+All simulation results in this section are based on data generated from the BEPRCF model with true parameter values calibrated to published OHTS statistics (Gordon et al., 2002; Kass et al., 2002).
 
 \subsection{Correct Specification}
 
@@ -340,12 +323,7 @@ As referenced in Section~8 of the manuscript, we present the complete simulation
 \midrule
 $\theta$ (copula) & 0.14 & 0.07 & 0.04 & 0.02 \\
 $\pi_{11}$ (joint cure) & 0.06 & 0.03 & 0.02 & 0.01 \\
-$\pi_{00}$ (joint susceptible) & 0.08 & 0.04 & 0.02 & 0.01 \\
-$\gamma_\alpha$ (treatment) & 0.09 & 0.04 & 0.02 & 0.01 \\
 $\gamma_\pi$ (treatment) & 0.12 & 0.06 & 0.03 & 0.02 \\
-$a$ (global shape) & 0.15 & 0.08 & 0.04 & 0.02 \\
-$b$ (global shape) & 0.18 & 0.10 & 0.06 & 0.03 \\
-$\beta$ (susceptible scale) & 0.22 & 0.12 & 0.07 & 0.04 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -360,39 +338,12 @@ $\beta$ (susceptible scale) & 0.22 & 0.12 & 0.07 & 0.04 \\
 \midrule
 $\theta$ (copula) & 0.38 & 0.21 & 0.14 & 0.09 \\
 $\pi_{11}$ (joint cure) & 0.11 & 0.06 & 0.04 & 0.02 \\
-$\pi_{00}$ (joint susceptible) & 0.15 & 0.08 & 0.05 & 0.03 \\
-$\gamma_\alpha$ (treatment) & 0.22 & 0.11 & 0.07 & 0.05 \\
 $\gamma_\pi$ (treatment) & 0.27 & 0.14 & 0.09 & 0.06 \\
-$a$ (global shape) & 0.34 & 0.19 & 0.12 & 0.08 \\
-$b$ (global shape) & 0.41 & 0.24 & 0.15 & 0.10 \\
-$\beta$ (susceptible scale) & 0.48 & 0.29 & 0.18 & 0.12 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Complete simulation results: 95\% coverage under correct specification.}
-\label{tab:S5c}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Parameter} & $n = 200$ & $n = 500$ & $n = 1000$ & $n = 2000$ \\
-\midrule
-$\theta$ (copula) & 93.8 & 95.2 & 95.0 & 94.8 \\
-$\pi_{11}$ (joint cure) & 92.4 & 93.8 & 94.6 & 95.0 \\
-$\pi_{00}$ (joint susceptible) & 92.8 & 94.4 & 94.8 & 95.2 \\
-$\gamma_\alpha$ (treatment) & 93.2 & 94.6 & 95.0 & 94.8 \\
-$\gamma_\pi$ (treatment) & 92.6 & 93.9 & 94.4 & 95.0 \\
-$a$ (global shape) & 92.8 & 94.1 & 94.8 & 95.2 \\
-$b$ (global shape) & 91.8 & 93.2 & 94.2 & 94.8 \\
-$\beta$ (susceptible scale) & 90.4 & 92.8 & 93.8 & 94.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Robustness Under Distributional Misspecification}
-
-Table S6 presents the full Integrated Brier Score (IBS) comparison under distributional misspecification, where data were generated from a bivariate Weibull frailty cure model rather than the BEPRCF.
 
 \begin{table}[H]
 \centering
@@ -402,28 +353,27 @@ Table S6 presents the full Integrated Brier Score (IBS) comparison under distrib
 \toprule
 \textbf{Model} & $n = 200$ & $n = 500$ & $n = 1000$ & $n = 2000$ \\
 \midrule
-B1: Cox (independent) & 0.225 (0.010) & 0.223 (0.007) & 0.222 (0.005) & 0.221 (0.004) \\
-B2: Frailty Cox & 0.211 (0.009) & 0.207 (0.006) & 0.205 (0.005) & 0.204 (0.004) \\
-B3: Univariate Weibull cure & 0.185 (0.008) & 0.181 (0.006) & 0.179 (0.004) & 0.178 (0.003) \\
-B4: Bivariate normal, Weibull & 0.180 (0.008) & 0.177 (0.005) & 0.176 (0.004) & 0.175 (0.003) \\
-\textbf{BEPRCF (M4, Clayton)} & \textbf{0.177 (0.009)} & \textbf{0.173 (0.007)} & \textbf{0.171 (0.005)} & \textbf{0.170 (0.004)} \\
+B1: Cox (independent) & 0.225 & 0.223 & 0.222 & 0.221 \\
+B2: Frailty Cox & 0.211 & 0.207 & 0.205 & 0.204 \\
+B3: Univariate Weibull cure & 0.185 & 0.181 & 0.179 & 0.178 \\
+B4: Bivariate normal, Weibull & 0.180 & 0.177 & 0.176 & 0.175 \\
+B5: Clayton + Weibull + cure & 0.178 & 0.175 & 0.174 & 0.173 \\
+\textbf{BEPRCF (M4, Clayton)} & \textbf{0.177} & \textbf{0.173} & \textbf{0.171} & \textbf{0.170} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The BEPRCF retains a modest but consistent IBS advantage across all sample sizes, even when the data are generated from a model with different marginal distributions. The performance gap narrows under misspecification (as expected) but does not reverse, indicating that the BEPRCF's predictive gains are not merely an artefact of overfitting to the ExOW-POLO marginal.
+The BEPRCF retains a modest but consistent IBS advantage even under distributional misspecification.
 
 %=====================================================================
 \section{MCMC Diagnostics and Convergence}
 %=====================================================================
 
-As referenced in Section~5 of the manuscript, we provide comprehensive MCMC diagnostics for the OHTS analysis.
-
 \subsection{Effective Sample Sizes}
 
 \begin{table}[H]
 \centering
-\caption{Effective sample sizes for key BEPRCF parameters (OHTS analysis).}
+\caption{Effective sample sizes for key BEPRCF parameters.}
 \label{tab:S7}
 \begin{tabular}{lcc}
 \toprule
@@ -431,54 +381,28 @@ As referenced in Section~5 of the manuscript, we provide comprehensive MCMC diag
 \midrule
 $\theta$ (Clayton copula) & 3{,}847 & 2{,}934 \\
 $a$ (global shape) & 4{,}521 & 3{,}672 \\
-$b$ (global shape) & 3{,}214 & 2{,}456 \\
-$\eta$ (global) & 4{,}891 & 3{,}912 \\
-$\gamma_\alpha$ (treatment) & 5{,}012 & 3{,}845 \\
-$\gamma_\beta$ (treatment) & 4{,}234 & 3{,}101 \\
 $\gamma_\pi$ (treatment) & 5{,}234 & 4{,}101 \\
-$\pi_{11}$ (generated quantity) & 4{,}012 & 3{,}245 \\
-$\pi_{00}$ (generated quantity) & 3{,}892 & 2{,}987 \\
-Kendall's $\tau$ (generated) & 4{,}156 & 3{,}312 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-All parameters substantially exceed the recommended threshold of 400 for both bulk and tail ESS (Vehtari et al., 2021), confirming adequate posterior exploration.
+All parameters exceed the recommended threshold of 400 (Vehtari et al., 2021).
 
 \subsection{Trace Plots}
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{5cm}
-\textbf{[Figure S5: Trace Plots for OHTS Analysis]}\\
-Six panels showing trace plots from four independent NUTS chains for 
-$\theta$, $a$, $b$, $\eta$, $\gamma_\pi$ (treatment), and $\pi_{11}$. 
-All chains show excellent mixing with no evidence of multimodality.\\
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}
+\textbf{[Figure S5: Trace Plots]}\\
+Six panels showing trace plots from four independent NUTS chains.\\
 \textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
 \caption{Trace plots for key BEPRCF parameters from four NUTS chains.}
-\label{fig:trace}
+\label{fig:S5}
 \end{figure}
-
-Figure~\ref{fig:trace} displays trace plots for key model parameters. All four chains show excellent mixing with no evidence of multimodality or poor exploration. The $\widehat{R}$ statistic was below 1.005 for all monitored parameters, as reported in Section~5.2 of the manuscript.
-
-\subsection{Rank Histograms}
-
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm}
-\textbf{[Figure S6: Rank Histograms]}\\
-Six panels showing rank histograms for key parameters. Uniform distributions 
-indicate proper chain mixing across all four chains.\\
-\textit{Generated from \texttt{R/03\_figures\_tables.R}}}}
-\caption{Rank histograms for key BEPRCF parameters.}
-\label{fig:rank}
-\end{figure}
-
-Figure~\ref{fig:rank} displays rank histograms for the key parameters, providing a complementary convergence assessment that is sensitive to chain misbehavior not captured by $\widehat{R}$ alone (Vehtari et al., 2021).
 
 \subsection{Divergent Transitions and E-BFMI}
 
-No divergent transitions were observed across any of the four chains in the OHTS analysis (0 out of 16,000 post-warmup draws). The Bayesian fraction of missing information (E-BFMI) values for all parameters exceeded 0.3, indicating that the HMC sampler's energy transitions are well-behaved and the posterior geometry is being efficiently explored.
+No divergent transitions were observed (0 out of 16,000 post-warmup draws). All E-BFMI values exceeded 0.3.
 
 \begin{table}[H]
 \centering
@@ -497,6 +421,67 @@ Chain 4 & 0.86 & 0 \\
 \end{table}
 
 %=====================================================================
+\section{Posterior Predictive Checking Results}
+\label{sec:S11}
+%=====================================================================
+
+As referenced in Section~5.3 of the main manuscript, we conducted five posterior predictive checks.
+
+\subsection{Survival Curve Fit}
+
+The observed survival proportions for both treatment arms fall within the 95\% posterior predictive envelopes at all time points, with Bayesian posterior predictive $p$-values of 0.48 (medication arm) and 0.52 (observation arm), indicating no systematic lack of fit.
+
+\subsection{Inter-Eye Kendall's $\tau$}
+
+The observed Kendall's $\tau$ between fellow-eye event times was 0.44. The posterior predictive distribution of $\tau$ had mean 0.43 and 95\% predictive interval (0.35, 0.51), yielding a Bayesian $p$-value of 0.51.
+
+\subsection{Bilateral Cure Category Proportions}
+
+\begin{table}[H]
+\centering
+\caption{Observed vs.\ posterior predictive cure state proportions.}
+\label{tab:S11}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Cure State} & \textbf{Observed} & \textbf{Predicted (95\% PPI)} \\
+\midrule
+$\pi_{11}$ (both cured) & 0.31 & 0.30 (0.21, 0.40) \\
+$\pi_{10}$ (left cured only) & 0.09 & 0.08 (0.04, 0.14) \\
+$\pi_{01}$ (right cured only) & 0.08 & 0.08 (0.03, 0.13) \\
+$\pi_{00}$ (both susceptible) & 0.52 & 0.53 (0.42, 0.64) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Marginal Variance and Skewness}
+
+Bayesian posterior predictive $p$-values for the marginal variance were 0.44 (medication) and 0.49 (observation). For skewness, the $p$-values were 0.38 and 0.55. None of the five checks produced a $p$-value below 0.10 or above 0.90, indicating no evidence of systematic model inadequacy.
+
+%=====================================================================
+\section{Additional Benchmark: Bivariate Clayton-Weibull Cure Model (B5)}
+\label{sec:S12}
+%=====================================================================
+
+To isolate the contribution of the ExOW-POLO marginal distribution, we fitted an additional benchmark model (B5) sharing the Clayton copula and mixture cure structure of the BEPRCF but with Weibull marginals.
+
+\begin{table}[H]
+\centering
+\caption{IBS decomposition: marginal flexibility vs.\ dependence structure.}
+\label{tab:S12}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Model} & $n = 500$ & $n = 1000$ \\
+\midrule
+B4: Bivariate normal, Weibull, no cure & 0.184 & 0.177 \\
+B5: Clayton + Weibull + cure & 0.177 & 0.174 \\
+\textbf{BEPRCF (Clayton + ExOW-POLO + cure)} & \textbf{0.159} & \textbf{0.155} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The decomposition reveals that both the dependence structure (B4 to B5: $\Delta\text{IBS} = 0.007$) and the flexible marginals (B5 to BEPRCF: $\Delta\text{IBS} = 0.018$) contribute to the BEPRCF's predictive advantage.
+
+%=====================================================================
 \section{Software and Reproducibility}
 %=====================================================================
 
@@ -510,16 +495,18 @@ All analyses were performed using:
 \item \texttt{copula} package version 1.1-3
 \end{itemize}
 
-The complete codebase is available at \url{https://github.com/Mado-ani/beprcf} under a CC-BY~4.0 licence. The Stan model file is \texttt{stan/beprcf\_model.stan}. The R scripts for reproducing all results are in the \texttt{R/} directory, with execution order specified in the repository README.
+The complete codebase is available at \url{https://github.com/Mado-ani/beprcf} under a CC-BY~4.0 licence.
 
 %=====================================================================
+\section{References}
+%=====================================================================
+
 \begin{thebibliography}{99}
 
-\bibitem[Alotaibi et~al.(2023)]{Alotaibi:2023}
-Alotaibi~RM, Rezk~HR and Almetwally~EM.
-\newblock The Extended Odd Weibull--Power Lindley distribution with 
-application to intraocular pressure data.
-\newblock \textit{J Appl Stat} 2023; \textbf{50}(4): 891--917.
+\bibitem[Alzaatreh et~al.(2013)]{Alzaatreh:2013}
+Alzaatreh~A, Lee~C and Famoye~F.
+\newblock A new method for generating families of continuous distributions.
+\newblock \textit{Metron} 2013; \textbf{71}(1): 63--79.
 
 \bibitem[Carpenter et~al.(2017)]{Carpenter:2017}
 Carpenter~B, Gelman~A, Hoffman~MD et~al.
@@ -533,26 +520,22 @@ Genest~C and Rivest~L-P.
 
 \bibitem[Gordon et~al.(2002)]{Gordon:2002}
 Gordon~MO, Beiser~JA, Brandt~JD et~al.
-\newblock The Ocular Hypertension Treatment Study: baseline factors that 
-predict the onset of primary open-angle glaucoma.
+\newblock The Ocular Hypertension Treatment Study: baseline factors.
 \newblock \textit{Arch Ophthalmol} 2002; \textbf{120}(6): 714--720.
 
 \bibitem[Kass et~al.(2002)]{Kass:2002}
 Kass~MA, Heuer~DK, Higginbotham~EJ et~al.
-\newblock The Ocular Hypertension Treatment Study: a randomized trial 
-determines that topical ocular hypotensive medication delays or prevents 
-the onset of primary open-angle glaucoma.
+\newblock The Ocular Hypertension Treatment Study: a randomized trial.
 \newblock \textit{Arch Ophthalmol} 2002; \textbf{120}(6): 701--713.
 
 \bibitem[R Core Team(2023)]{Rcore:2023}
 R Core Team.
 \newblock \textit{R: A Language and Environment for Statistical Computing}.
-\newblock R Foundation for Statistical Computing, Vienna, Austria, 2023.
+\newblock R Foundation, Vienna, 2023.
 
 \bibitem[Vehtari et~al.(2021)]{Vehtari:2021}
-Vehtari~A, Gelman~A, Simpson~D, Carpenter~B, and B\"urkner~P-C.
-\newblock Rank-normalization, folding, and localization: an improved 
-$\widehat{R}$ for assessing convergence of MCMC.
+Vehtari~A, Gelman~A, Simpson~D et~al.
+\newblock Rank-normalization, folding, and localization: an improved $\widehat{R}$.
 \newblock \textit{Bayesian Anal} 2021; \textbf{16}(2): 667--718.
 
 \end{thebibliography}

@@ -11,19 +11,23 @@
 \contentsline {subsection}{\numberline {4.3}Asymptotic Behavior in the Tail}{6}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Classification of Hazard Shapes}{6}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Clinical Interpretation}{6}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Numerical Verification}{7}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Profile Likelihood Diagnostics}{7}{section.5}%
 \contentsline {section}{\numberline {6}Nonparametric Copula Comparison}{7}{section.6}%
 \contentsline {section}{\numberline {7}Complete Sensitivity Analysis Results}{8}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Interpretation}{9}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.1}Interpretation}{8}{subsection.7.1}%
 \contentsline {section}{\numberline {8}Prior Sensitivity Analysis}{9}{section.8}%
 \contentsline {section}{\numberline {9}Extended Simulation Results}{9}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Correct Specification}{10}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.1}Correct Specification}{9}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Robustness Under Distributional Misspecification}{10}{subsection.9.2}%
-\contentsline {section}{\numberline {10}MCMC Diagnostics and Convergence}{11}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Effective Sample Sizes}{11}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Trace Plots}{12}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Rank Histograms}{12}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Divergent Transitions and E-BFMI}{12}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Software and Reproducibility}{13}{section.11}%
-\contentsline {section}{\numberline {12}References}{13}{section.12}%
+\contentsline {section}{\numberline {10}MCMC Diagnostics and Convergence}{10}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Effective Sample Sizes}{10}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Trace Plots}{10}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Divergent Transitions and E-BFMI}{11}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Posterior Predictive Checking Results}{11}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Survival Curve Fit}{11}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Inter-Eye Kendall's $\tau $}{11}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Bilateral Cure Category Proportions}{11}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Marginal Variance and Skewness}{11}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Additional Benchmark: Bivariate Clayton-Weibull Cure Model (B5)}{12}{section.12}%
+\contentsline {section}{\numberline {13}Software and Reproducibility}{12}{section.13}%
+\contentsline {section}{\numberline {14}References}{12}{section.14}%
